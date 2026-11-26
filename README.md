@@ -1,44 +1,5 @@
 # PBL Program Intelligence & Grant Reporting Assistant
 
-## Quick start (Windows, Mac, Linux)
-
-Unzip so that `package.json` sits directly inside your project folder, then in a terminal opened in that folder:
-
-```bash
-npm install
-npm run dev        # open http://localhost:5173
-```
-
-## Deploy to Vercel (3 steps)
-
-1. Push this folder to a GitHub repository (the folder that contains `package.json` must be the repo root).
-2. In Vercel choose **Add New, Project**, import the repository, leave **Root Directory empty** and every setting on its default. No environment variables are needed.
-3. Click **Deploy**, then open `https://<your-site>.vercel.app/api/health`. It should show `{"ok":true,"schools":2300}`.
-
-How it works: `vercel.json` serves the Vite build as static files and routes `/api/*` to one serverless function, `api/index.js`, which is a bundled copy of the Express app (`npm run build` regenerates it; the committed copy is used as a fallback). Evidence images are served statically from `public/evidence`. Action status is also remembered in the browser, because serverless instances do not share memory; use a database for durable status in production.
-
-
-A working end-to-end app for the Mantra4Change Lead Full-Stack Product Developer assignment.
-It turns three months of PBL school responses into review-ready decisions and grant-ready report text.
-**All data is synthetic.** Deterministic metrics, risk bands, priorities, actions and grant fact summaries work with AI fully disabled.
-
-## Run it
-
-Requires Node 20+ (tested on 22).
-
-Unzip, then open a terminal **inside the `app` folder** (the one containing `package.json`).
-
-```bash
-npm install
-npm run dev            # API on :4000, UI on http://localhost:5173
-# or, single process:
-npm run build && npm start   # http://localhost:4000
-npm test               # 18 tests: engine, reconciliation, stress over every district and block
-npm run verify         # typecheck + tests
-```
-
-Optional: copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` to turn on the LLM narrative mode. Not required for anything.
-
 ## What is built
 
 | Tier | Feature | Where |
