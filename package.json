@@ -1,0 +1,45 @@
+{
+  "name": "pbl-program-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PBL Program Intelligence & Grant Reporting Assistant (Mantra4Change assessment, synthetic data)",
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "npm run bundle:api && vite build",
+    "start": "tsx server/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "bundle:api": "node scripts/build-api.mjs",
+    "verify": "tsc --noEmit && vitest run"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.1.0",
+    "@fontsource-variable/source-serif-4": "^5.1.0",
+    "csv-parse": "^5.6.0",
+    "express": "^4.21.2",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.15.0",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "esbuild": "^0.24.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
